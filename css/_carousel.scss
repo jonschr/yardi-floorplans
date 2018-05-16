@@ -1,0 +1,11 @@
+/* ==========================================================================
+   Carousel
+   ========================================================================== */
+
+.loop-container.loop-layout-floorplancarousel,
+.loop-container.loop-layout-floorplancarousel-detailed {
+    @include mobile {
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+}

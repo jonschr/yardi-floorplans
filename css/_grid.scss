@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+.loop-container.loop-layout-floorplangrid,
+.loop-container.loop-layout-floorplangrid-detailed {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 700px;
+    justify-content: center;
+
+    @include mobile {
+        min-height: 250px;
+    }
+
+
+    .floorplans {
+        width: calc( 100% / 3 );
+
+        @include tablet {
+            width: calc( 100% / 2 );
+        }
+
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+}

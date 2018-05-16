@@ -1,0 +1,86 @@
+<?php
+/*
+    Plugin Name: Floorplans
+    Plugin URI: http://elod.in
+    Description: Just another Floorplan plugin (for Genesis)
+    Version: 1.0.2
+    Author: Jon Schroeder
+    Author URI: http://elod.in
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+*/
+
+/////////////////
+// BASIC SETUP //
+/////////////////
+
+// Plugin Directory
+define( 'RBC_DIR', dirname( __FILE__ ) );
+
+//* If we don't have Genesis running, let's bail out right there
+$theme = wp_get_theme(); // gets the current theme
+if ( 'genesis' != $theme['Template'] )
+    return;
+
+//////////////////////////
+// PLUGIN CUSTOMIZATION //
+//////////////////////////
+
+// Register post types
+require_once 'post_types.php';
+
+// Register taxonomies
+require_once 'taxonomies.php';
+
+// Get common layout components
+require_once 'layouts/common-before.php';
+require_once 'layouts/common-internal.php';
+
+// Register layouts
+require_once 'layouts/floorplangrid.php';
+require_once 'layouts/floorplancarousel.php';
+require_once 'layouts/floorplanslider.php';
+
+// Register fields
+require_once 'fields.php';
+
+///////////////////////////////////
+// STYLE AND SCRIPT REGISTRATION //
+///////////////////////////////////
+
+add_action( 'wp_enqueue_scripts', 'floorplans_enqueue' );
+/**
+ * Enqueues scripts and styles.
+ *
+ * @since 1.0.0
+ */
+function floorplans_enqueue() {
+
+    // Plugin styles
+    wp_enqueue_style( 'floorplan-styles', plugin_dir_url( __FILE__ ) . '/css/floorplan.css' );
+
+    // Slick general
+    wp_register_style( 'floorplan-slick-main-style', plugin_dir_url( __FILE__ ) . '/slick/slick.css' );
+    wp_register_style( 'floorplan-slick-main-theme', plugin_dir_url( __FILE__ ) . '/slick/slick-theme.css' );
+    wp_register_script( 'floorplan-slick-main-load', plugin_dir_url( __FILE__ ) . '/slick/slick.min.js', array( 'jquery' ), null );
+
+    // Carousel only
+    wp_register_script( 'floorplan-slick-carousel-init', plugin_dir_url( __FILE__ ) . '/js/floorplancarousel-init.js', array( 'floorplan-slick-main-load' ), null );
+
+    // Slider only
+    wp_register_script( 'floorplan-slick-slider-init', plugin_dir_url( __FILE__ ) . '/js/floorplanslider-init.js', array( 'floorplan-slick-main-load' ), null );
+
+    // Featherlight general
+    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.css' );
+    wp_register_script( 'floorplan-featherlight-main', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.js', array( 'jquery' ), null );   
+    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.css' );
+
+}
