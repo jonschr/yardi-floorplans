@@ -52,7 +52,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5ae794b6da575',
 			'label' => 'Square footage',
 			'name' => 'squarefootage',
-			'type' => 'number',
+			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
