@@ -30,9 +30,29 @@ $theme = wp_get_theme(); // gets the current theme
 if ( 'genesis' != $theme['Template'] )
     return;
 
+/**
+ * Add a notification if ACF isn't installed and active
+ */
+add_action( 'admin_notices', 'floorplans_error_notice_ACF' );
+function floorplans_error_notice_ACF() {
+
+    if( !class_exists( 'acf' ) ) {
+        echo '<div class="error notice"><p>Please install and activate the <a target="_blank" href="https://www.advancedcustomfields.com/pro/">Advanced Custom Fields Pro</a> plugin. Without it, the Floorplans plugin won\'t work properly.</p></div>';
+    }
+
+    //* Testing to see whether we have the Pro version of ACF installed
+    if( class_exists( 'acf' ) && !class_exists( 'acf_pro_updates' ) ) {
+        echo '<div class="error notice"><p>It looks like you\'ve installed the free version of Advanced Custom Fields. To work properly, the Floorplans plugin requires <a target="_blank" href="https://www.advancedcustomfields.com/pro/">the Pro version</a> instead.</p></div>';
+    }
+}
+
+
 //////////////////////////
 // PLUGIN CUSTOMIZATION //
 //////////////////////////
+
+// Register options page
+require_once 'floorplan-options.php';
 
 // Register post types
 require_once 'post_types.php';

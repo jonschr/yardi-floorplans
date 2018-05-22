@@ -16,6 +16,8 @@ function rb_floorplan_standard_each() {
 	$bedsbathsmarkup = get_beds_baths_markup( $id );
 	$squarefeet = get_post_meta( $id, 'squarefootage', true );
 
+	$leasingurl = get_field('leasing_url', 'option');
+
 	$lightboxmarkup = sprintf( "<h2>%s</h2>%s<img src='%s' />", $title, $excerpt, $imagelarge );
 
 	//* Markup
@@ -43,7 +45,8 @@ function rb_floorplan_standard_each() {
 				if ( doing_action( 'add_loop_layout_floorplancarousel-detailed' ) || doing_action( 'add_loop_layout_floorplangrid-detailed' ) )
 					printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Zoom in</a>', $imagelarge );
 
-				echo '<a href="https://6539041.onlineleasing.realpage.com/" target="_blank" class="button button-small">Lease now</a>';
+				if ( $leasingurl )
+					printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
 
 			echo '</div>'; // .buttonswrap
 

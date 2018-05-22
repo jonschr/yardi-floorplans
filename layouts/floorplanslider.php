@@ -141,17 +141,6 @@ function rb_floorplan_each() {
 
 			echo '<div class="arrows"></div>';
 
-
-			// echo '<div class="buttonswrap">';
-
-				//* Only do the Zoom button if we're on the detailed view
-				// if ( doing_action( 'add_loop_layout_floorplancarousel-detailed' ) || doing_action( 'add_loop_layout_floorplangrid-detailed' ) )
-				// 	printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Zoom in</a>', $imagelarge );
-
-				// echo '<a href="https://6539041.onlineleasing.realpage.com/" target="_blank" class="button button-small">Lease now</a>';
-
-			// echo '</div>'; // .buttonswrap
-
 			if ( current_user_can( 'edit_posts' ) )
 				edit_post_link( 'Edit floorplan', '<div class="edit-floorplans"><small>', '</small></div>', $id, 'post-edit-link' );				
 

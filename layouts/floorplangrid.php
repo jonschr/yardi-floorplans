@@ -15,7 +15,7 @@ function rb_floorplangrid_before( $args ) {
 	if ( !$terms )
 		return;
 
-	echo '<p class="align-center">';
+	echo '<p class="align-center floorplanlinks">';
 
 		echo '<a href="#" class="button button-small viewalllink">All</a>';
 
