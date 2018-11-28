@@ -51,6 +51,9 @@ function floorplans_error_notice_ACF() {
 // PLUGIN CUSTOMIZATION //
 //////////////////////////
 
+// Register the API shortcode
+require_once( 'shortcode_api/floorplans_shortcode.php' );
+
 // Register options page
 require_once 'floorplan-options.php';
 

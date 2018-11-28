@@ -35,6 +35,28 @@ function floorplan_options() {
 					'default_value' => '',
 					'placeholder' => '',
 				),
+				array(
+					'key' => 'field_5b046dd51dc523',
+					'label' => 'RentCafe API key',
+					'name' => 'rentcafeapikey',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'default_value' => '',
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_5b046dd51dc524',
+					'label' => 'RentCafe Property Code',
+					'name' => 'rentcafepropertycode',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'default_value' => '',
+					'placeholder' => '',
+				),
 			),
 			'location' => array(
 				array(
