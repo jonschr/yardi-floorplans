@@ -64,8 +64,11 @@ require_once 'post_types.php';
 require_once 'taxonomies.php';
 
 // Get common layout components
-require_once 'layouts/common-before.php';
+require_once 'layouts/common-functions.php';
 require_once 'layouts/common-internal.php';
+
+// Get other functions
+require_once( 'shortcode_api/data-source-detection.php' );
 
 // Register layouts
 require_once 'layouts/floorplangrid.php';
