@@ -13,48 +13,99 @@ function rb_floorplan_standard_each() {
 	$title = get_the_title();
 	$imagelarge = get_the_post_thumbnail_url( $id, 'large' );
 	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
-	$bedsbathsmarkup = get_beds_baths_markup( $id );
 	$squarefeet = get_post_meta( $id, 'squarefootage', true );
+	$rentrange = get_post_meta( $id, 'rent_range', true );
+	$beds = get_post_meta( $id, 'bedrooms', true );
+	$baths = get_post_meta( $id, 'bathrooms', true );
 
 	$leasingurl = get_field('leasing_url', 'option');
 
-	$lightboxmarkup = sprintf( "<h2>%s</h2>%s<img src='%s' />", $title, $excerpt, $imagelarge );
+	if ( $baths == 1 )
+		$baths = 'one';
+
+	if ( $baths == 2 )
+		$baths = 'two';
+
+	if ( $baths == 3 )
+		$baths = 'three';
+
+	if ( $baths == 4 )
+		$baths = 'four';
+
+	if ( $baths == 5 )
+		$baths = 'five';
+
 
 	//* Markup
 	if ( has_post_thumbnail() ) 
-        printf( '<div class="featured-image" style="background-image:url( %s )"></div>', $imagelarge );
+		printf( '<div class="featured-image" style="background-image:url( %s )"></div>', $imagelarge );
+		
+	echo '<div class="buttonswrap">';
+		
+		if ( $leasingurl)	
+			printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
+		
+		printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Detailed view</a>', $imagelarge );
+		
+	echo '</div>';
 
-    if ( $title || $excerpt ) 
-    	echo '<div class="info"><div class="info-container">';
-   
-			if ( $title )
-				printf( '<h3>%s</h3>', $title );
+	if ( $title )
+		printf( '<h3>%s</h3>', $title );
 
-			if ( $bedsbathsmarkup )
-				printf( '<p class="bedsbaths">%s</p>', $bedsbathsmarkup );
+	echo '<div class="bedsbathswrap">';
 
-			if ( $squarefeet )
-				printf( '<p class="squarefeet">%s square feet</p>', $squarefeet ); 
+		if ( $beds == 0 || !$beds )
+			$beds = 'studio';
 
-			if ( $excerpt )
-				echo $excerpt;
+		if ( $beds == 1 )
+			$beds = 'one';
 
-			echo '<div class="buttonswrap">';
+		if ( $beds == 2 )
+			$beds = 'two';
 
-				//* Only do the Zoom button if we're on the detailed view
-				if ( doing_action( 'add_loop_layout_floorplancarousel-detailed' ) || doing_action( 'add_loop_layout_floorplangrid-detailed' ) )
-					printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Zoom in</a>', $imagelarge );
+		if ( $beds == 3 )
+			$beds = 'three';
 
-				if ( $leasingurl )
-					printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
+		if ( $beds == 4 )
+			$beds = 'four';
 
-			echo '</div>'; // .buttonswrap
+		if ( $beds == 5 )
+			$beds = 'five';
 
-			if ( current_user_can( 'edit_posts' ) )
-				edit_post_link( 'Edit floorplan', '<div class="edit-floorplans"><small>', '</small></div>', $id, 'post-edit-link' );				
+		if ( $beds ) {
+			echo '<div class="bedswrap">';
+				echo '<h4>Beds</h4>';
+				printf( '<p class="bed">%s</p>', $beds );
+			echo '</div>';
+		}
 
+		if ( $baths ) {
+			echo '<div class="bathswrap">';
+				echo '<h4>baths</h4>';
+				printf( '<p class="baths">%s</p>', $baths );
+			echo '</div>';
+		}
 
-	if ( $title || $excerpt ) 
-		echo '</div></div>'; // .info-container, .info
+		if ( $squarefeet ) {
+			echo '<div class="squarefeetwrap">';
+				echo '<h4>Square feet</h4>';
+				printf( '<p class="squarefeet">%s</p>', $squarefeet ); 
+			echo '</div>';
+		}
+
+		if ( $rentrange ) {
+			echo '<div class="rentwrap">';
+				echo '<h4>Rent</h4>';
+				printf( '<p class="rentrange">$%s</p>', $rentrange );
+			echo '</div>';
+		}
+
+	echo '</div>';
+
+	// if ( $excerpt )
+	// 	echo $excerpt;
+
+	if ( current_user_can( 'edit_posts' ) )
+		edit_post_link( 'Edit floorplan', '<div class="edit-floorplans"><small>', '</small></div>', $id, 'post-edit-link' );				
     
 }
