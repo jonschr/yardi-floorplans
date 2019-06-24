@@ -120,6 +120,7 @@ function rb_floorplan_each() {
 	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
 	$bedsbathsmarkup = get_beds_baths_markup( $id );
 	$squarefeet = get_post_meta( $id, 'squarefootage', true );
+	$rentrange = get_post_meta( $id, 'rent_range', true );
 
 	$lightboxmarkup = sprintf( "<h2>%s</h2>%s<img src='%s' />", $title, $excerpt, $imagelarge );
 
@@ -138,6 +139,9 @@ function rb_floorplan_each() {
 
 			if ( $bedsbathsmarkup )
 				printf( '<p class="bedsbaths">%s</p>', $bedsbathsmarkup );
+
+			if ( $rentrange )
+				printf( '<p class="rentrange">$%s</p>', $rentrange );
 
 			echo '<div class="arrows"></div>';
 
