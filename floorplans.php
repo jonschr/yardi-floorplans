@@ -3,7 +3,7 @@
     Plugin Name: Floorplans
     Plugin URI: http://elod.in
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 1.0.4
+    Version: 1.0.5
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -83,6 +83,7 @@ require_once 'fields.php';
 ///////////////////////////////////
 
 add_action( 'wp_enqueue_scripts', 'floorplans_enqueue' );
+add_action( 'enqueue_block_assets', 'floorplans_enqueue' );
 /**
  * Enqueues scripts and styles.
  *

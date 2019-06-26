@@ -28,7 +28,8 @@ function rb_floorplangrid_before( $args ) {
 
 	echo '</p>';
 
-	$currentfloorplans = htmlspecialchars($_GET["plan"]);
+	if ( !empty( $_GET["plan"] ) )
+		$currentfloorplans = htmlspecialchars($_GET["plan"]);
 
 	?>
 	<script>
@@ -41,7 +42,7 @@ function rb_floorplangrid_before( $args ) {
 	jQuery(document).ready(function( $ ) {
 
 		//* Initial load
-		var currentitems = '<?php echo $currentfloorplans; ?>';
+		var currentitems = '<?php if ( isset( $currentfloorplans ) ) { echo $currentfloorplans; } ?>';
 		if ( currentitems )
 			updateFloorplans( currentitems );
 		
