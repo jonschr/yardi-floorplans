@@ -40,15 +40,6 @@ function rb_floorplan_standard_each() {
 	if ( has_post_thumbnail() ) 
 		printf( '<div class="featured-image" style="background-image:url( %s )"></div>', $imagelarge );
 		
-	echo '<div class="buttonswrap">';
-		
-		if ( $leasingurl)	
-			printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
-		
-		printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Detailed view</a>', $imagelarge );
-		
-	echo '</div>';
-
 	if ( $title )
 		printf( '<h3>%s</h3>', $title );
 
@@ -100,6 +91,15 @@ function rb_floorplan_standard_each() {
 			echo '</div>';
 		}
 
+	echo '</div>';
+
+	echo '<div class="buttonswrap">';
+		
+		if ( $leasingurl)	
+			printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
+		
+		printf( '<a class="button button-clear button-small button-floorplan" href="#" data-featherlight="%s">Detailed view</a>', $imagelarge );
+		
 	echo '</div>';
 
 	// if ( $excerpt )

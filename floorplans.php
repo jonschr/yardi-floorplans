@@ -3,7 +3,7 @@
     Plugin Name: Floorplans
     Plugin URI: http://elod.in
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 1.0.5
+    Version: 1.0.6
     Author: Jon Schroeder
     Author URI: http://elod.in
 

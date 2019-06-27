@@ -59,7 +59,7 @@
       background-position: center center;
       background-repeat: no-repeat; }
   .loop-container.loop-layout-floorplancarousel .edit-floorplans a, .loop-container.loop-layout-floorplancarousel-detailed .edit-floorplans a, .loop-container.loop-layout-floorplangrid .edit-floorplans a, .loop-container.loop-layout-floorplangrid-detailed .edit-floorplans a {
-    color: white !important;
+    color: #666 !important;
     font-size: 13px !important; }
     .loop-container.loop-layout-floorplancarousel .edit-floorplans a:hover, .loop-container.loop-layout-floorplancarousel-detailed .edit-floorplans a:hover, .loop-container.loop-layout-floorplangrid .edit-floorplans a:hover, .loop-container.loop-layout-floorplangrid-detailed .edit-floorplans a:hover {
       text-decoration: underline; }
