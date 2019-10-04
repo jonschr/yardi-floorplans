@@ -37,7 +37,7 @@ function floorplan_options() {
 				),
 				array(
 					'key' => 'field_5b046dd51dc523',
-					'label' => 'RentCafe API key',
+					'label' => 'RentCafe/Yardi API key',
 					'name' => 'rentcafeapikey',
 					'type' => 'text',
 					'instructions' => '',
@@ -48,7 +48,7 @@ function floorplan_options() {
 				),
 				array(
 					'key' => 'field_5b046dd51dc524',
-					'label' => 'RentCafe Property Code',
+					'label' => 'RentCafe/Yardi Property Code',
 					'name' => 'rentcafepropertycode',
 					'type' => 'text',
 					'instructions' => '',
