@@ -1,4 +1,50 @@
 /* ==========================================================================
+   Filters
+   ========================================================================== */
+
+.floorplanlinks {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Defaults
+   ========================================================================== */
+
+.loop-container {
+    .entry.floorplans {
+        text-align: center;
+        background-color: white;
+        padding: 20px;
+
+        .info-wrap {
+            display: flex;
+            width: 100%;
+            flex-flow: row wrap;
+
+            > div {
+                flex: 0 1 auto;
+                width: calc( 100% / 2 );
+                margin: 10px 0;
+            }
+
+            .label {
+                font-weight: bold;
+            }
+        }
+
+        .button.disabled {
+            background-color: rgba(black, 0.15);
+            color: #888;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 0 2px;
+        }
+    }
+}
+
+/* ==========================================================================
    Just the sliders (carousel and slider)
    ========================================================================== */
 
@@ -17,6 +63,10 @@
         .slick-dots {
             padding: 0;
             margin: 0;
+        }
+
+        .floorplans {
+            margin: 0 10px 10px;
         }
     }
 }
@@ -41,25 +91,11 @@
 .loop-container {
     &.loop-layout-floorplancarousel,
     &.loop-layout-floorplancarousel-detailed,
-    &.loop-layout-floorplangrid,
-    &.loop-layout-floorplangrid-detailed {
+    &.loop-layout-floorplans,
+    &.loop-layout-floorplans-detailed {
         padding-top: 0;
 
         .floorplans {
-            background: transparent;
-            padding: 20px;
-
-            .loop-item-inner {
-                box-shadow: 0 0 20px 0 rgba(black, 0.3);
-                background: white;
-                border-radius: 10px;
-                padding: 20px;
-                position: relative;
-                overflow: hidden;
-                transition: .5s all;
-                text-align: center;
-            }
-
             .featured-image {
                 width: 100%;
                 height: 0;
@@ -83,42 +119,6 @@
 
         .buttonswrap {
             margin: 20px 0;
-        }
-
-        h3 {
-            margin-bottom: 20px;
-        }
-
-        .button {
-            margin: 2px !important;
-            padding: 10px;
-            font-size: 13px;
-            display: inline-block;
-            min-width: auto;
-        }
-
-        .bedsbathswrap {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-            align-content: center;
-            margin-bottom: -30px;
-
-            @include mobile {
-                flex-flow: column;
-                margin-bottom: -15px;
-            }
-
-
-            > div {
-                width: calc( 100% / 2 );
-                margin-bottom: 30px;
-
-                @include mobile {
-                    width: 100%;
-                    margin-bottom: 15px;
-                }
-            }
         }
     }
 }

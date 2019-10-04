@@ -2,6 +2,7 @@
     &.loop-layout-floorplanslider,
     &.loop-layout-floorplanslider-detailed {
         position: relative;
+        padding-top: 70px;
 
         .floorplans {
             background: transparent;
@@ -9,6 +10,17 @@
 
             .loop-item-inner {
                 padding: 0;
+            }
+
+            .info {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            .featured-image {
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
             }
 
             @include notmobile {
@@ -70,16 +82,22 @@
         }
 
         .slick-arrow {
-            position: absolute;
-            left: 20%;
-            color: black;
-            z-index: 99;
-            top: auto;
-            bottom: 0;
             width: 30px;
             height: 30px;
             background: black;
             text-align: center;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: none;
+
+            &.slick-prev {
+                transform: translateX(-20px);
+            }
+
+            &.slick-next {
+                transform: translateX(20px);
+            }
 
             &:before {
                 font-size: 15px;
@@ -96,42 +114,70 @@
             &.slick-prev:before {
                 content: "\f341";
             }
-
-            @include desktop {
-                &.slick-next {
-                    transform: translateX(calc(-50% + 20px)) translateY(-100px);
-                }
-
-                &.slick-prev {
-                    transform: translateX(calc(-50% - 20px)) translateY(-100px);
-                }
-            }
-
-
-            @include tablet {
-                &.slick-next {
-                    transform: translateX(calc(-50% + 20px));
-                }
-
-                &.slick-prev {
-                    transform: translateX(calc(-50% - 20px));
-                }
-            }
-
-
-            @include mobile {
-                left: 50%;
-                top: 18px;
-                text-align: center;
-
-                &.slick-next {
-                    transform: translateX(calc(-50% + 20px));
-                }
-
-                &.slick-prev {
-                    transform: translateX(calc(-50% - 20px));
-                }
-            }
         }
+
+        // .slick-arrow {
+        //     position: absolute;
+        //     left: 20%;
+        //     color: black;
+        //     z-index: 99;
+        //     top: auto;
+        //     bottom: 0;
+        //     width: 30px;
+        //     height: 30px;
+        //     background: black;
+        //     text-align: center;
+
+        //     &:before {
+        //         font-size: 15px;
+        //         color: white;
+        //         width: 30px;
+        //         height: 30px;
+        //         font-family: 'dashicons';
+        //     }
+
+        //     &.slick-next:before {
+        //         content: "\f345";
+        //     }
+
+        //     &.slick-prev:before {
+        //         content: "\f341";
+        //     }
+
+        //     @include desktop {
+        //         &.slick-next {
+        //             transform: translateX(calc(-50% + 20px)) translateY(-100px);
+        //         }
+
+        //         &.slick-prev {
+        //             transform: translateX(calc(-50% - 20px)) translateY(-100px);
+        //         }
+        //     }
+
+        //     @include tablet {
+        //         &.slick-next {
+        //             transform: translateX(calc(-50% + 20px));
+        //         }
+
+        //         &.slick-prev {
+        //             transform: translateX(calc(-50% - 20px));
+        //         }
+        //     }
+
+        //     @include mobile {
+        //         left: 50%;
+        //         top: 18px;
+        //         text-align: center;
+
+        //         &.slick-next {
+        //             transform: translateX(calc(-50% + 20px));
+        //         }
+
+        //         &.slick-prev {
+        //             transform: translateX(calc(-50% - 20px));
+        //         }
+        //     }
+        // }
+   
     }
 }

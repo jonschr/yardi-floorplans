@@ -2,12 +2,15 @@
    Grid
    ========================================================================== */
 
-.loop-container.loop-layout-floorplangrid,
-.loop-container.loop-layout-floorplangrid-detailed {
+.loop-container.loop-layout-floorplans,
+.loop-container.loop-layout-floorplans-detailed {
     display: flex;
     flex-flow: row wrap;
     min-height: 700px;
     justify-content: center;
+    width: calc( 100% + 40px );
+    margin-left: -20px;
+    margin-right: -20px;
 
     @include mobile {
         min-height: 250px;
@@ -15,16 +18,16 @@
 
 
     .floorplans {
-        width: calc( 100% / 3 );
-        margin: 0;
+        width: calc( 100% / 3 - 20px );
+        margin: 0 10px 20px;
 
         @include tablet {
-            width: calc( 100% / 2 );
+            width: calc( 100% / 2 - 20px );
         }
 
 
         @include mobile {
-            width: 100%;
+            width: calc( 100% - 20px );
         }
     }
 }

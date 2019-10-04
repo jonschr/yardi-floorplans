@@ -71,9 +71,9 @@ require_once 'layouts/common-internal.php';
 require_once( 'shortcode_api/data-source-detection.php' );
 
 // Register layouts
-require_once 'layouts/floorplangrid.php';
 require_once 'layouts/floorplancarousel.php';
 require_once 'layouts/floorplanslider.php';
+require_once 'layouts/floorplans.php';
 
 // Register fields
 require_once 'fields.php';

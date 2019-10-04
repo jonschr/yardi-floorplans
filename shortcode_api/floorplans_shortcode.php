@@ -37,10 +37,10 @@ function do_shortcode_api_loop( $atts ) {
 		
 		// Error messages
 		if ( !$atts['api_key'] )
-			echo 'Missing API key, please <a target="_blank" href="/wp-admin/edit.php?post_type=floorplans&page=acf-options-settings">update that here</a>.';
+			echo 'Missing API key, please <a target="_blank" href="/wp-admin/edit.php?post_type=floorplans&page=acf-options-settings">update that here</a>.<br/>';
 
 		if ( !$atts['property_code'] )
-			echo 'Missing property code, please <a target="blank" href="/wp-admin/edit.php?post_type=floorplans&page=acf-options-settings">update that here</a>.';
+			echo 'Missing property code, please <a target="blank" href="/wp-admin/edit.php?post_type=floorplans&page=acf-options-settings">update that here</a>.<br/>';
 
 		// Scripts and styles before the loop
 		do_action( 'before_loop_layout_' . $atts['layout'], $floorplans );
@@ -56,7 +56,7 @@ function do_shortcode_api_loop( $atts ) {
 					break;
 
 				// Default classes for the post
-				$floorplanclass = array( 'floorplans', 'type-floorplans', 'status-publish' );
+				$floorplanclass = array( 'floorplans', 'type-floorplans', 'status-publish', 'entry' );
 
 				// Get the value for beds for each floorplan
 				$beds = $floorplan['Beds'];
@@ -80,8 +80,12 @@ function do_shortcode_api_loop( $atts ) {
 				// Article markup
 				printf( '<article class="%s">', $floorplanclass );
 
-					// Do the layout
-					do_action( 'add_loop_layout_' . $atts['layout'], $floorplan );
+					echo '<div class="loop-item-inner">';
+
+						// Do the layout
+						do_action( 'add_loop_layout_' . $atts['layout'], $floorplan );
+
+					echo '</div>';
 
 				echo '</article>';
 

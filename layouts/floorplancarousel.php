@@ -16,27 +16,41 @@ function rb_floorplancarousel_before( $args ) {
 
 //* Output floorplancarousel before just the detailed view
 add_action( 'before_loop_layout_floorplancarousel-detailed', 'rb_floorplancarousel_before_detailed_only' );
-function rb_floorplancarousel_before_detailed_only() {
+function rb_floorplancarousel_before_detailed_only( $args ) {
 
 	// Enqueue featherlight
 	wp_enqueue_script( 'floorplan-featherlight-main' );
 	wp_enqueue_style( 'floorplan-featherlight-style' );
 
-	$terms = get_terms( 'sizes', array(
-	    'hide_empty' => true,
-	) );
-
-	//* Bail if nothing found
-	if ( !$terms )
-		return;
+	$terms = get_floorplan_terms( $args );
+	$datasource = get_floorplan_data_source( $args );
 
 	echo '<p class="align-center floorplanlinks">';
 
 		echo '<a href="#" class="button button-small viewalllink">All</a>';
 
 		foreach ( $terms as $term ) {
-			$name = $term->name;
-			$slug = $term->slug;
+			
+			// Wordpress uses an object to hold this information
+			if ( $datasource == 'wordpress' ) {
+				$name = $term->name;
+				$slug = $term->slug;
+			}
+
+			// The API will use an array to hold this inormation
+			if ( $datasource != 'wordpress' ) {
+				
+				// Inherit the slug from the term
+				$slug = $term;
+				
+				if ( $term == 'studio' ) $name = 'Studio';
+				if ( $term == 'one-bedroom' ) $name = 'One Bedroom';
+				if ( $term == 'two-bedroom' ) $name = 'Two Bedroom';
+				if ( $term == 'three-bedroom' ) $name = 'Three Bedroom';
+				if ( $term == 'four-bedroom' ) $name = 'Four Bedroom';
+				if ( $term == 'five-bedroom' ) $name = 'Five Bedroom';
+				if ( $term == 'six-bedroom' ) $name = 'Six Bedroom';
+			}
 
 			printf( '<a href="#" class="button button-small inactive floorplanlink %s" floorplans="%s">%s</a>', $slug, $slug, $name );
 		}
@@ -104,5 +118,5 @@ function rb_floorplancarousel_before_detailed_only() {
 }
 
 //* Output each floorplancarousel
-add_action( 'add_loop_layout_floorplancarousel', 'rb_floorplan_standard_each' );
-add_action( 'add_loop_layout_floorplancarousel-detailed', 'rb_floorplan_standard_each' );
+add_action( 'add_loop_layout_floorplancarousel', 'floorplans_default_internal_each' );
+add_action( 'add_loop_layout_floorplancarousel-detailed', 'floorplans_default_internal_each' );
