@@ -10,7 +10,7 @@
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
-function elodin_register_post_types() {
+function floorplans_register_post_types() {
 
 	//* Floorplans
 	$name_plural = 'Floorplans';
@@ -55,7 +55,7 @@ function elodin_register_post_types() {
 	register_post_type( $post_type, $args );
 }
 
-add_action( 'init', 'elodin_register_post_types' );
+add_action( 'init', 'floorplans_register_post_types' );
 
 
 //* Redirect single resources to the commissioners' resource page

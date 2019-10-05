@@ -1,9 +1,10 @@
 <?php
 /*
-    Plugin Name: Floorplans
+    Plugin Name: Yardi Floorplans
     Plugin URI: http://elod.in
+    GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 1.0.6
+    Version: 2.0
     Author: Jon Schroeder
     Author URI: http://elod.in
 
