@@ -1,12 +1,17 @@
 <?php
 
-function get_floorplan_terms( $args ) {
+function get_floorplan_terms( $floorplans ) {
 
-	$datasource = get_floorplan_data_source( $args );
+	//* Output the floorplans data for testing
+	// echo '<pre style="font-size: 15px;">';
+	// 	print_r( $floorplans );
+	// echo '</pre>'; 
+
+	$datasource = get_floorplan_data_source( $floorplans );
 
 	// Get the terms the wordpress way
 	if ( $datasource == 'wordpress' ) {
-
+		
 		$terms = get_terms( 'sizes', array(
 		    'hide_empty' => true,
 		) );
@@ -19,7 +24,7 @@ function get_floorplan_terms( $args ) {
 		$terms = array();
 
 		// Loop through each of the floorplans
-		foreach ( $args as $floorplan ) {
+		foreach ( $floorplans as $floorplan ) {
 
 			// Get the value for beds for each floorplan
 			$beds = $floorplan['Beds'];
@@ -29,6 +34,8 @@ function get_floorplan_terms( $args ) {
 			if ( $beds == 2 ) $beds = 'two-bedroom';
 			if ( $beds == 3 ) $beds = 'three-bedroom';
 			if ( $beds == 4 ) $beds = 'four-bedroom';
+			if ( $beds == 5 ) $beds = 'five-bedroom';
+			if ( $beds == 6 ) $beds = 'six-bedroom';
 
 			// Add the number of beds from the current floorplan to an array
 			array_push( $terms, $beds );

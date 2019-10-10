@@ -5,18 +5,19 @@
  * @param  array $args
  * @return string $datasource
  */
-function get_floorplan_data_source( $args ) {
+function get_floorplan_data_source( $floorplans ) {
 	
 	// Default datasource is wordpress
 	$datasource = 'wordpress';
 
-	// Prevent an undefined offset error
-	if ( isset( $args[0] ) ) {
+	//* Output the floorplan data for testing
+	// echo '<pre>';
+	// print_r( $floorplans );
+	// echo '</pre>';
 
-		// If we have RentCafe data, our source is rentcafe
-		if ( $args[0]['PropertyId'] )
+	foreach ( $floorplans as $floorplan ) {
+		if ( isset( $floorplan['PropertyId'] ) )
 			$datasource = 'rentcafe';
-
 	}
 
 	return $datasource;

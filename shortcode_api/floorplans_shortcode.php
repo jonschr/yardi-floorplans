@@ -12,6 +12,7 @@ function do_shortcode_api_loop( $atts ) {
 		'posts_per_page' => '-1',
 		'api_key' => get_field('rentcafeapikey', 'option'),
 		'property_code' => get_field('rentcafepropertycode', 'option'),
+		'limit_floorplans' => null,
 	), $atts );
 
 	// Default class for the loop container
@@ -27,14 +28,15 @@ function do_shortcode_api_loop( $atts ) {
 	$url = sprintf( 'https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=%s&VoyagerPropertyCode=%s', $atts['api_key'], $atts['property_code'] ); // path to your JSON file
 	$data = file_get_contents( $url ); // put the contents of the file into a variable
 	$floorplans = json_decode( $data, true ); // decode the JSON feed
+	$floorplans = remove_unmatched_floorplans($floorplans, 'FloorplanName', $atts['limit_floorplans'] );
 
 	ob_start();
-		
+
 		//* Show ALL floorplan data
 		// echo '<pre style="text-align: left; font-size: 16px;">';
 		// 	print_r( $floorplans );
 		// echo '</pre>';
-		
+
 		// Error messages
 		if ( !$atts['api_key'] )
 			echo 'Missing API key, please <a target="_blank" href="/wp-admin/edit.php?post_type=floorplans&page=acf-options-settings">update that here</a>.<br/>';
@@ -101,4 +103,31 @@ function do_shortcode_api_loop( $atts ) {
 		echo '</div>';
 
 	return ob_get_clean();
+}
+
+function remove_unmatched_floorplans($floorplans, $key, $value){
+	
+	//* Bail and return what's already there if there's no value to match
+	if ( $value == null ) {
+		return $floorplans;
+	}
+
+	foreach ( $floorplans as $subKey => $floorplan ) {
+		
+		//* Output each floorplan data individually
+		// echo '<pre>';
+		// 	echo $floorplan['FloorplanName'];
+		// echo '</pre>';
+
+		// echo $floorplan['FloorplanName'] . '<br/>';
+		// echo $value . '<br/>';
+
+		$str = $floorplan['FloorplanName'];
+
+		if (strpos($str, $value ) === false) {
+			unset($floorplans[$subKey]);
+		}
+	}
+
+   return $floorplans;
 }
