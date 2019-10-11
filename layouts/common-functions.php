@@ -22,31 +22,52 @@ function get_floorplan_terms( $floorplans ) {
 
 		// Preset our terms var as an array
 		$terms = array();
+		$termsnamed = array();
 
-		// Loop through each of the floorplans
+		//* Loop through each of the floorplans
 		foreach ( $floorplans as $floorplan ) {
 
 			// Get the value for beds for each floorplan
 			$beds = $floorplan['Beds'];
 
-			if ( $beds == 0 ) $beds = 'studio';
-			if ( $beds == 1 ) $beds = 'one-bedroom';
-			if ( $beds == 2 ) $beds = 'two-bedroom';
-			if ( $beds == 3 ) $beds = 'three-bedroom';
-			if ( $beds == 4 ) $beds = 'four-bedroom';
-			if ( $beds == 5 ) $beds = 'five-bedroom';
-			if ( $beds == 6 ) $beds = 'six-bedroom';
-
 			// Add the number of beds from the current floorplan to an array
 			array_push( $terms, $beds );
+		
+		}
+
+		//* Ensure a consistent order
+		sort( $terms );
+
+		//* Go through the array again, this time making a new array with names instead of numbers
+		foreach ( $terms as $term ) {
+
+			// Get the value for beds for each floorplan
+			// $beds = $term['Beds'];
+
+			if ( $term == 0 ) $beds = 'studio';
+
+			if ( $term == 1 ) $beds = 'one-bedroom';
+
+			if ( $term == 2 ) $beds = 'two-bedroom';
+
+			if ( $term == 3 ) $beds = 'three-bedroom';
+			
+			if ( $term == 4 ) $beds = 'four-bedroom';
+
+			if ( $term == 5 ) $beds = 'five-bedroom';
+
+			if ( $term == 6 ) $beds = 'six-bedroom';
+
+			// Add the number of beds from the current floorplan to an array
+			array_push( $termsnamed, $beds );
 		}
 
 		// Our final list of terms is each unique term that appeared
-		$terms = array_unique( $terms );
+		$termsnamed = array_unique( $termsnamed );
 		
 	}
 
-	return $terms;
+	return $termsnamed;
 
 }
 
