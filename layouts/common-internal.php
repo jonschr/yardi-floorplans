@@ -103,7 +103,7 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 						printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
 
 					if ( $availableunits == 0 )
-						printf( '<a href="#" target="_blank" class="button button-small disabled">Unavailable</a>' );
+						printf( '<a class="button button-small disabled">Unavailable</a>' );
 
 				}
 
