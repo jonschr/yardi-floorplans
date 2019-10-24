@@ -15,6 +15,8 @@ function get_floorplan_terms( $floorplans ) {
 		$terms = get_terms( 'sizes', array(
 		    'hide_empty' => true,
 		) );
+
+		return $terms;
 	}
 
 	// Get the terms if rentcafe is our datasource
@@ -65,9 +67,8 @@ function get_floorplan_terms( $floorplans ) {
 		// Our final list of terms is each unique term that appeared
 		$termsnamed = array_unique( $termsnamed );
 		
+		return $termsnamed;
 	}
-
-	return $termsnamed;
 
 }
 

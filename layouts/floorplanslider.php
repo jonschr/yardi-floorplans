@@ -24,8 +24,8 @@ function rb_floorplanslider_before_detailed_only( $args ) {
 	wp_enqueue_script( 'floorplan-featherlight-main' );
 	wp_enqueue_style( 'floorplan-featherlight-style' );
 
-	$terms = get_floorplan_terms( $args );
 	$datasource = get_floorplan_data_source( $args );
+	$terms = get_floorplan_terms( $args );
 
 	echo '<p class="align-center floorplanlinks">';
 

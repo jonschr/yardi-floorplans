@@ -4,7 +4,7 @@
     Plugin URI: http://elod.in
     GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 2.1
+    Version: 2.1.1
     Author: Jon Schroeder
     Author URI: http://elod.in
 
