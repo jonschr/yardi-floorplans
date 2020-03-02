@@ -14,15 +14,15 @@ function rb_floorplanslider_before( $args ) {
 
 	wp_enqueue_style( 'dashicons' );
 
+	// Enqueue featherlight
+	wp_enqueue_script( 'floorplan-featherlight-main' );
+	wp_enqueue_style( 'floorplan-featherlight-style' );
+
 }
 
 //* Output floorplanslider before just the detailed view
 add_action( 'before_loop_layout_floorplanslider-detailed', 'rb_floorplanslider_before_detailed_only' );
 function rb_floorplanslider_before_detailed_only( $args ) {
-
-	// Enqueue featherlight
-	wp_enqueue_script( 'floorplan-featherlight-main' );
-	wp_enqueue_style( 'floorplan-featherlight-style' );
 
 	$datasource = get_floorplan_data_source( $args );
 	$terms = get_floorplan_terms( $args );

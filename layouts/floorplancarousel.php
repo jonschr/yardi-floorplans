@@ -12,15 +12,15 @@ function rb_floorplancarousel_before( $args ) {
 
 	wp_enqueue_script( 'floorplan-slick-carousel-init' );
 
+	// Enqueue featherlight
+	wp_enqueue_script( 'floorplan-featherlight-main' );
+	wp_enqueue_style( 'floorplan-featherlight-style' );
+
 }
 
 //* Output floorplancarousel before just the detailed view
 add_action( 'before_loop_layout_floorplancarousel-detailed', 'rb_floorplancarousel_before_detailed_only' );
 function rb_floorplancarousel_before_detailed_only( $args ) {
-
-	// Enqueue featherlight
-	wp_enqueue_script( 'floorplan-featherlight-main' );
-	wp_enqueue_style( 'floorplan-featherlight-style' );
 
 	$terms = get_floorplan_terms( $args );
 	$datasource = get_floorplan_data_source( $args );
