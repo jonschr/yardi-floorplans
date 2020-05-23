@@ -4,7 +4,7 @@
     Plugin URI: http://elod.in
     GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 2.1.3
+    Version: 3.0
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -46,6 +46,17 @@ function floorplans_error_notice_ACF() {
         echo '<div class="error notice"><p>It looks like you\'ve installed the free version of Advanced Custom Fields. To work properly, the Floorplans plugin requires <a target="_blank" href="https://www.advancedcustomfields.com/pro/">the Pro version</a> instead.</p></div>';
     }
 }
+
+// Updater
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/yardi-floorplans',
+	__FILE__,
+	'yardi-floorplans'
+);
+
+// Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
 
 
 //////////////////////////
