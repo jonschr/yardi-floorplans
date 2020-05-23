@@ -21,6 +21,7 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 		$beds = get_post_meta( $id, 'bedrooms', true );
 		$baths = get_post_meta( $id, 'bathrooms', true );
 		$squarefeet = get_post_meta( $id, 'squarefootage', true );
+		$rent = get_post_meta( $id, 'rent_range', true );
 		$leasingurl = get_field('leasing_url', 'option');
 
 	}
@@ -84,6 +85,11 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 				if ( $datasource != 'wordpress' ) {
 					if ( $rent )
 						printf( '<div class="rent column"><div class="label">Rent</div><div class="data">%s</div></div>', $rent );
+				}
+
+				if ( $datasource == 'wordpress' ) {
+					if ( $rent )
+						printf( '<div class="rent column"><div class="label">Rent</div><div class="data">$%s</div></div>', $rent );
 				}
 
 			echo '</div>'; // .bedsbathssqrft
