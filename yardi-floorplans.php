@@ -1,10 +1,10 @@
 <?php
 /*
-    Plugin Name: Yardi Floorplans
+    Plugin Name: Floorplans: Yardi
     Plugin URI: http://elod.in
     GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 3.0.2
+    Version: 3.0.3
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -27,7 +27,7 @@
 define( 'YARDI_FLOORPLANS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'YARDI_FLOORPLANS_VERSION', '3.0.2' );
+define ( 'YARDI_FLOORPLANS_VERSION', '3.0.3' );
 
 
 //* If we don't have Genesis running, let's bail out right there
