@@ -99,7 +99,7 @@ function floorplans_default_before( $args ) {
 
 			//* Floorplans
 			$( '.loop-layout-floorplans-detailed .floorplans' ).hide();
-			$( '.loop-layout-floorplans-detailed .sizes-' + currentitems ).show( "medium" );
+			$( '.loop-layout-floorplans-detailed .sizes-' + currentitems ).show();
 		}
 
 		function resetFloorplans() {
@@ -110,7 +110,7 @@ function floorplans_default_before( $args ) {
 
 			//* Floorplans
 			$( '.loop-layout-floorplans-detailed .floorplans' ).hide();
-			$( '.loop-layout-floorplans-detailed .floorplans' ).show( "medium" );
+			$( '.loop-layout-floorplans-detailed .floorplans' ).show();
 
 		}
 	});

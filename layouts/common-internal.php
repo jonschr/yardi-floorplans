@@ -63,7 +63,7 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 
 	//* Markup
 	if ( $imagelarge ) 
-        printf( '<div class="featured-image" style="background-image:url( %s )"></div>', $imagelarge );
+        printf( '<a class="featured-image" href="#" data-featherlight="%s" style="background-image:url( %s )"></a>', $imagelarge, $imagelarge );
 
     if ( $title || $excerpt ) 
     	echo '<div class="info"><div class="info-container">';
@@ -98,7 +98,7 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 
 				//* Only do the Zoom button if we're on the detailed view
 				// if ( doing_action( 'add_loop_layout_floorplancarousel-detailed' ) || doing_action( 'add_loop_layout_floorplangrid-detailed' ) )
-					printf( '<a class="button button-small" href="#" data-featherlight="%s">View</a>', $imagelarge );
+					// printf( '<a class="button button-small" href="#" data-featherlight="%s">View</a>', $imagelarge );
 
 				if ( $leasingurl && $datasource == 'wordpress' )
 					printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );

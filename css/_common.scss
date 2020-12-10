@@ -15,15 +15,16 @@
         text-align: center;
         background-color: white;
         padding: 20px;
+        transition: none;
 
         .info-wrap {
             display: flex;
             width: 100%;
             flex-flow: row wrap;
 
-            > div {
+            >div {
                 flex: 0 1 auto;
-                width: calc( 100% / 2 );
+                width: calc(100% / 2);
                 margin: 10px 0;
             }
 
@@ -50,6 +51,7 @@
    ========================================================================== */
 
 .loop-container {
+
     &.loop-layout-floorplancarousel,
     &.loop-layout-floorplancarousel-detailed,
     &.loop-layout-floorplanslider,
@@ -74,10 +76,12 @@
 
 .section.dark,
 .section.background-image {
+
     .loop-layout-floorplancarousel,
     .loop-layout-floorplancarousel-detailed,
     .loop-layout-floorplanslider,
     .loop-layout-floorplanslider-detailed {
+
         .slick-dots button,
         .slick-dots button:before {
             color: white;
@@ -90,6 +94,7 @@
    ========================================================================== */
 
 .loop-container {
+
     &.loop-layout-floorplancarousel,
     &.loop-layout-floorplancarousel-detailed,
     &.loop-layout-floorplans,
@@ -104,6 +109,8 @@
                 background-size: contain;
                 background-position: center center;
                 background-repeat: no-repeat;
+                display: block;
+                margin-bottom: 20px;
             }
         }
 

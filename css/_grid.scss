@@ -8,7 +8,7 @@
     flex-flow: row wrap;
     min-height: 700px;
     justify-content: center;
-    width: calc( 100% + 40px );
+    width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
 
@@ -16,18 +16,17 @@
         min-height: 250px;
     }
 
-
     .floorplans {
-        width: calc( 100% / 3 - 20px );
+        width: calc(100% / 3 - 20px);
         margin: 0 10px 20px;
 
         @include tablet {
-            width: calc( 100% / 2 - 20px );
+            width: calc(100% / 2 - 20px);
         }
 
 
         @include mobile {
-            width: calc( 100% - 20px );
+            width: calc(100% - 20px);
         }
     }
 }

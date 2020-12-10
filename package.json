@@ -1,0 +1,24 @@
+{
+  "name": "yardi-floorplans",
+  "version": "3.0.2",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://redblueconcepts@github.com/jonschr/yardi-floorplans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonschr/yardi-floorplans/issues"
+  },
+  "homepage": "https://github.com/jonschr/yardi-floorplans#readme",
+  "devDependencies": {
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^3.0.0"
+  }
+}

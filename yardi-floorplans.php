@@ -4,7 +4,7 @@
     Plugin URI: http://elod.in
     GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplan plugin (for Genesis)
-    Version: 3.0.1
+    Version: 3.0.2
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -23,8 +23,12 @@
 // BASIC SETUP //
 /////////////////
 
-// Plugin Directory
-define( 'RBC_DIR', dirname( __FILE__ ) );
+// Plugin directory
+define( 'YARDI_FLOORPLANS', dirname( __FILE__ ) );
+
+// Define the version of the plugin
+define ( 'YARDI_FLOORPLANS_VERSION', '3.0.2' );
+
 
 //* If we don't have Genesis running, let's bail out right there
 $theme = wp_get_theme(); // gets the current theme
@@ -104,22 +108,25 @@ add_action( 'enqueue_block_assets', 'floorplans_enqueue' );
 function floorplans_enqueue() {
 
     // Plugin styles
-    wp_enqueue_style( 'floorplan-styles', plugin_dir_url( __FILE__ ) . '/css/floorplan.css' );
+    wp_enqueue_style( 'floorplan-styles', plugin_dir_url( __FILE__ ) . 'css/floorplan.css', array(), YARDI_FLOORPLANS_VERSION );
 
     // Slick general
-    wp_register_style( 'floorplan-slick-main-style', plugin_dir_url( __FILE__ ) . '/slick/slick.css' );
-    wp_register_style( 'floorplan-slick-main-theme', plugin_dir_url( __FILE__ ) . '/slick/slick-theme.css' );
-    wp_register_script( 'floorplan-slick-main-load', plugin_dir_url( __FILE__ ) . '/slick/slick.min.js', array( 'jquery' ), null );
+    wp_register_style( 'floorplan-slick-main-style', plugin_dir_url( __FILE__ ) . 'slick/slick.css', array(), YARDI_FLOORPLANS_VERSION );
+    wp_register_style( 'floorplan-slick-main-theme', plugin_dir_url( __FILE__ ) . 'slick/slick-theme.css', array(), YARDI_FLOORPLANS_VERSION );
+    wp_register_script( 'floorplan-slick-main-load', plugin_dir_url( __FILE__ ) . 'slick/slick.min.js', array( 'jquery' ), YARDI_FLOORPLANS_VERSION, true );
+    
+    
 
     // Carousel only
-    wp_register_script( 'floorplan-slick-carousel-init', plugin_dir_url( __FILE__ ) . '/js/floorplancarousel-init.js', array( 'floorplan-slick-main-load' ), null );
+    wp_register_script( 'floorplan-slick-carousel-init', plugin_dir_url( __FILE__ ) . 'js/floorplancarousel-init.js', array( 'floorplan-slick-main-load' ), YARDI_FLOORPLANS_VERSION, true );
 
     // Slider only
-    wp_register_script( 'floorplan-slick-slider-init', plugin_dir_url( __FILE__ ) . '/js/floorplanslider-init.js', array( 'floorplan-slick-main-load' ), null );
+    wp_register_script( 'floorplan-slick-slider-init', plugin_dir_url( __FILE__ ) . 'js/floorplanslider-init.js', array( 'floorplan-slick-main-load' ), YARDI_FLOORPLANS_VERSION, true );
 
     // Featherlight general
-    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.css' );
-    wp_register_script( 'floorplan-featherlight-main', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.js', array( 'jquery' ), null );   
-    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . '/featherlight/release/featherlight.min.css' );
+    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . 'featherlight/release/featherlight.min.css', array(), YARDI_FLOORPLANS_VERSION );
+    wp_register_script( 'floorplan-featherlight-main', plugin_dir_url( __FILE__ ) . 'featherlight/release/featherlight.min.js', array( 'jquery' ), YARDI_FLOORPLANS_VERSION, true );   
+    wp_register_style( 'floorplan-featherlight-style', plugin_dir_url( __FILE__ ) . 'featherlight/release/featherlight.min.css', array(), YARDI_FLOORPLANS_VERSION );
 
 }
+
