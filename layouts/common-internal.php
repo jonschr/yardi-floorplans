@@ -23,7 +23,8 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 		$squarefeet = get_post_meta( $id, 'squarefootage', true );
 		$rent = get_post_meta( $id, 'rent_range', true );
 		$leasingurl = get_field('leasing_url', 'option');
-
+		$check_availability_url = get_post_meta( $id, 'check_availability_url', true );
+		
 	}
 
 	if ( $datasource == 'rentcafe' ) {
@@ -33,7 +34,7 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 		$excerpt = null; // there is no excerpt if from the API
 		$beds = $floorplan_from_api['Beds'];
 		$baths = $floorplan_from_api['Baths'];
-		$squarefeet = floorplan_range( $floorplan_from_api['MinimumSQFT'], $floorplan_from_api['MaximumSQFT'] );
+		$check_availability_url = floorplan_range( $floorplan_from_api['MinimumSQFT'], $floorplan_from_api['MaximumSQFT'] );
 		$rent = floorplan_price_range( $floorplan_from_api['MinimumRent'], $floorplan_from_api['MaximumRent'] );
 		$leasingurl = $floorplan_from_api['AvailabilityURL'];
 		$availableunits = $floorplan_from_api['AvailableUnitsCount'];
@@ -102,6 +103,9 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 
 				if ( $leasingurl && $datasource == 'wordpress' )
 					printf( '<a href="%s" target="_blank" class="button button-small">Lease now</a>', $leasingurl );
+										
+				if ( $check_availability_url && $datasource == 'wordpress' )
+					printf( '<a href="%s" target="_blank" class="button button-small">Check Availability</a>', $check_availability_url );
 
 				if ( $datasource == 'rentcafe' ) {
 					

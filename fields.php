@@ -90,6 +90,27 @@ acf_add_local_field_group(array(
 			'max' => '',
 			'step' => '',
 		),
+		array(
+			'key' => 'field_5ae794b6da57598769aaa',
+			'label' => 'Check Availability URL',
+			'name' => 'check_availability_url',
+			'type' => 'url',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '$',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '',
+		),
 	),
 	'location' => array(
 		array(
