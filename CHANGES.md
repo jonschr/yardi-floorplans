@@ -1,3 +1,10 @@
+### 3.0.6
+* Removing accidental prepend on the availability field
+
+### 3.0.4
+* Adding a button for availability when we're using local data
+* Ading a custom field for availability 
+
 ### 3.0.2
 * Adding versioning to scripts and styles
 * Removing the "view" button
