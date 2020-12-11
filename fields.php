@@ -105,7 +105,7 @@ acf_add_local_field_group(array(
 			),
 			'default_value' => '',
 			'placeholder' => '',
-			'prepend' => '$',
+			'prepend' => '',
 			'append' => '',
 			'min' => '',
 			'max' => '',
