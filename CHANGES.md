@@ -1,3 +1,6 @@
+### 3.1.0
+* Adding the lightbox for gforms
+
 ### 3.0.6
 * Removing accidental prepend on the availability field
 
