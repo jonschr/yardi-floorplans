@@ -15,7 +15,7 @@ function floorplans_default_before( $args ) {
 	$datasource = get_floorplan_data_source( $args );
 
 	// echo '<pre style="text-align: left; font-size: 13px;">';
-	// 	print_r ( $args[0] );
+	// 	print_r ( $args );
 	// echo '</pre>';
 
 	if ( doing_action( 'before_loop_layout_floorplans-detailed' ) ) {

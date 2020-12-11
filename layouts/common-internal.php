@@ -106,6 +106,10 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 										
 				if ( $check_availability_url && $datasource == 'wordpress' )
 					printf( '<a href="%s" target="_blank" class="button button-small">Check Availability</a>', $check_availability_url );
+				
+				$gform_id = get_field('gform_id', 'option');
+				if ( $gform_id )
+					echo '<a href="#" class="button button-small" data-featherlight="#floorplans-gform-lightbox">Get more info</a>';
 
 				if ( $datasource == 'rentcafe' ) {
 					
