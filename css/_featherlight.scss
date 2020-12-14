@@ -1,0 +1,11 @@
+.featherlight {
+    .featherlight-content {
+        @include notmobile {
+            min-width: 25%;
+        }
+
+        @include mobile {
+            min-width: 75%;
+        }
+    }
+}

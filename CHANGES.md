@@ -1,3 +1,6 @@
+### 3.1.3 
+* Fixing a bug where it was forcing only gform 2 to pull in, rather than using the setting.
+
 ### 3.1.0
 * Adding the lightbox for gforms
 

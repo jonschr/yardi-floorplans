@@ -9,12 +9,12 @@ add_action( 'before_loop_layout_floorplanslider-detailed', 'floorplans_add_gform
 function floorplans_add_gform_lightbox() {
             
     $gform_id = get_field('gform_id', 'option' );
-    
+        
     if ( !$gform_id )
         return;
-        
+                        
     echo '<div id="floorplans-gform-lightbox" class="floorplans-gform-lightbox">';
-        echo do_shortcode( '[gravityform id=2 title=true description=true ajax=true tabindex=49]' );
+        echo do_shortcode( '[gravityform id=' . $gform_id . ' title=true description=true ajax=true tabindex=49]' );
     echo '</div>';
         
 }
