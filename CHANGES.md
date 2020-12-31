@@ -1,3 +1,6 @@
+### 3.1.4
+* Updating author
+
 ### 3.1.3 
 * Fixing a bug where it was forcing only gform 2 to pull in, rather than using the setting.
 

@@ -1,12 +1,11 @@
 <?php
 /*
     Plugin Name: Floorplans: Yardi
-    Plugin URI: http://elod.in
-    GitHub Plugin URI: https://github.com/jonschr/yardi-floorplans
-    Description: Just another Floorplan plugin (for Genesis)
-    Version: 3.1.3
-    Author: Jon Schroeder
-    Author URI: http://elod.in
+    Plugin URI: https://github.com/jonschr/yardi-floorplans
+    Description: Just another Floorplans plugin
+    Version: 3.1.4
+    Author: Brindle Digital
+    Author URI: https://www.brindledigital.com/
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -27,7 +26,7 @@
 define( 'YARDI_FLOORPLANS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'YARDI_FLOORPLANS_VERSION', '3.1.3' );
+define ( 'YARDI_FLOORPLANS_VERSION', '3.1.4' );
 
 
 //* If we don't have Genesis running, let's bail out right there
