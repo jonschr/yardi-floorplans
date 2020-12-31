@@ -1,4 +1,4 @@
-###
+### 3.2
 * Moving the vendor stuff into the vendor directory, where they should be
 
 ### 3.1.4
