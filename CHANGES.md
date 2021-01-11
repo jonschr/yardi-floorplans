@@ -1,3 +1,6 @@
+### 3.2.1
+* Plugin slight rename
+
 ### 3.2
 * Moving the vendor stuff into the vendor directory, where they should be
 
