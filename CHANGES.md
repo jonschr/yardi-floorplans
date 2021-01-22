@@ -1,3 +1,6 @@
+### 3.2.2
+* Fixing a bug where when using Yardi as a datasource, the rent range wasn't pulling in
+
 ### 3.2.1
 * Plugin slight rename
 

@@ -34,10 +34,11 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 		$excerpt = null; // there is no excerpt if from the API
 		$beds = $floorplan_from_api['Beds'];
 		$baths = $floorplan_from_api['Baths'];
-		$check_availability_url = floorplan_range( $floorplan_from_api['MinimumSQFT'], $floorplan_from_api['MaximumSQFT'] );
+		$squarefeet = floorplan_range( $floorplan_from_api['MinimumSQFT'], $floorplan_from_api['MaximumSQFT'] );
 		$rent = floorplan_price_range( $floorplan_from_api['MinimumRent'], $floorplan_from_api['MaximumRent'] );
 		$leasingurl = $floorplan_from_api['AvailabilityURL'];
 		$availableunits = $floorplan_from_api['AvailableUnitsCount'];
+		$leasingurl = $floorplan_from_api['AvailabilityURL'];
 
 		// Process the image
 		$image_url_full = $floorplan_from_api['FloorplanImageURL'];
