@@ -3,7 +3,7 @@
     Plugin Name: Floorplans (Yardi & CPT)
     Plugin URI: https://github.com/jonschr/yardi-floorplans
     Description: Just another Floorplans plugin
-    Version: 3.2.2
+    Version: 3.2.3
     Author: Brindle Digital
     Author URI: https://www.brindledigital.com/
 
@@ -26,7 +26,7 @@
 define( 'YARDI_FLOORPLANS', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'YARDI_FLOORPLANS_VERSION', '3.2.2' );
+define ( 'YARDI_FLOORPLANS_VERSION', '3.2.3' );
 
 
 //* If we don't have Genesis running, let's bail out right there

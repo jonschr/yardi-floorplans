@@ -1,3 +1,6 @@
+### 3.2.3
+* Accounting for a scenario where multiple images have been uploaded (in the default layout)
+
 ### 3.2.2
 * Fixing a bug where when using Yardi as a datasource, the rent range wasn't pulling in
 

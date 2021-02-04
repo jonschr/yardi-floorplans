@@ -42,12 +42,15 @@ function floorplans_default_internal_each( $floorplan_from_api ) {
 
 		// Process the image
 		$image_url_full = $floorplan_from_api['FloorplanImageURL'];
+		$image_url_full = explode( ',', $image_url_full );
 		$image_name = $floorplan_from_api['FloorplanImageName'];
+		$image_name = explode( ',', $image_name );
 
 		// Replace the image name in the main string with the encoded version (because the image names may contain spaces)
-		$image_name_encoded = rawurlencode( $image_name );
-		$imagelarge = str_replace( $image_name, $image_name_encoded, $image_url_full );
-
+		$image_name_encoded = rawurlencode( $image_name[0] );
+		
+		$imagelarge = str_replace( $image_name, $image_name_encoded, $image_url_full[0] );
+		
 	}
 
 	$lightboxmarkup = sprintf( "<h2>%s</h2>%s<img src='%s' />", $title, $excerpt, $imagelarge );
